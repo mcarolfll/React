@@ -10,16 +10,6 @@ export default function App() {
   }
 
   return (
-    <div style={{ padding: 24 }}>
-      <h1>Debug no React</h1>
-
-      <p>Preço : {price}</p>
-      <p>Quantidade : {qty}</p>
-
-      <button onClick={() => console.log("Total:", calcTotal())}>
-        Calcular total
-      </button>
-      <p>resultado {calcTotal()}</p>
-    </div>
+    <h1>Atividade</h1>
   );
 }
