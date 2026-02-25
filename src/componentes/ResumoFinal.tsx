@@ -1,18 +1,19 @@
 import { useState } from "react";
 
-export const ResumoFinal = () => {
-
-  const [historico, setHistorico] = useState("");
+export default function ResumoFinal() {
+  const [historico, setHistorico] = useState<string[]>([]);
 
   const [valor, setValor] = useState(0);
 
   
-  function registrar(acao) (
-    const novoItem = `${acao} -> ${valor}`;
+  function registrar(acao: any) {
+  const novoItem = `${acao} -> ${valor}`;
     const novo = [...historico, novoItem];
 
     setHistorico(novo);
-  )
+
+  }
+  
 
   function aumentar() {
     
@@ -43,11 +44,11 @@ export const ResumoFinal = () => {
       </ul>
 
       <p>
-        Regra final: histórico deve guardar frases do tipo:
-        "aumentou = 1", "aumentou = 2"...
+        Regra final: histórico deve guardar frases do tipo: <br />
+        aumentou - 1", "aumentou - 2"...
       </p>
     </div>
-  )
-  
-}
+  );
+}  
 
+  
