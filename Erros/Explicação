@@ -6,7 +6,6 @@ import ListaTarefas from "./componentes/ListaTarefas";
 import ResumoFinal from "./componentes/ResumoFinal"; 
 
 Erros:
-
 Algumas importações estavam dando erro e não carregava a página.
 
 PainelDebug.tsx
@@ -24,9 +23,7 @@ export default function PainelDebug() {
 }
 
 Erros:
-
-Tirar o react depois do import (não é mais necessário em versões mais recentes do React).
-
+Tirar o react depois do import.
 O nome "status" estava escrito de forma errada como statsu. Corrigir para "status".
 
 ContadorDuplo.tsx
@@ -46,13 +43,9 @@ export default function ContadorDuplo() {
 }
 
 Erros:
-
 Tirar o react depois do import.
-
 Em const passo, deveria ser declarado com um valor, por exemplo, const passo = 1;.
-
 O "/" no const passo; é um erro de digitação, removê-lo.
-
 A função está dentro de outra função (calcularNovo dentro de aumentarA). O código correto seria:
 
 const passo = 1;
@@ -60,6 +53,7 @@ function aumentarA() {
   const novoA = a + passo;
   setA(novoA);
 }
+
 ControleTexto.tsx
 import React, { useState } from "react"; 
 
@@ -79,12 +73,8 @@ export default function ControleTexto() {
 }
 
 Erros:
-
-Tirar o react depois do import.
-
-Quando definimos e: any ou valor: any, estamos dizendo ao sistema para ignorar a checagem de tipos. Deveria ter um tipo mais específico como e: React.ChangeEvent<HTMLInputElement>.
-
-Erro de digitação no nome da função, deveria ser normalizarTexto, e não normalizaTexto.
+Tirar o react depois do import, Quando definimos "e: any" ou "valor: any", estamos dizendo ao sistema para ignorar a checagem de tipos naquela variável, 
+erro de digitação onde teve falta do "r" em "normalizar"
 
 ListaTarefas.tsx
 import React, { useState } from "react"; 
@@ -108,22 +98,17 @@ export function ListaTarefas() {
 }
 
 Erros:
+Tirar o react depois do import, o nome "itens" está escrito de froma errada da que foi declarada, o codigo ele está com alguns erros de logica pois não precisa do "return" na função de adicionar pois ele não vai deixar a pessoa responder
+e na "function remover" ainda está faltando algumas coisas, e teria que ficar assim: 
 
-Tirar o react depois do import.
+function remover(indice:number) { 
+const copia2 = [...itens] 
+copia2.splice(indice, 1); 
+setItens(copia2); 
+} 
 
-O nome "itens" estava escrito de forma errada, estava sendo usado items em vez de itens (inconsistência de nomes).
+apenas vai adicionar uma outra copia e fazer algumas alterações, ai sim vai conseguir remover algum iten da lista de tarefas
 
-A lógica do adicionar está incorreta, o código if (entrada.length > 0) return; impede a pessoa de adicionar algo. Deveria ser:
-
-if (entrada.length === 0) return;
-
-Em remover, a função está manipulando o array original itens diretamente, o que pode causar problemas de reatividade. O correto é fazer uma cópia do array:
-
-function remover(indice: number) {
-  const copia2 = [...itens];
-  copia2.splice(indice, 1);
-  setItens(copia2);
-}
 ResumoFinal.tsx
 import React from "react"; 
 import { useState } from "react"; 
@@ -168,11 +153,11 @@ export const ResumoFinal = () => {
 };
 
 Erros:
+Na função "Registrar" faz a mesma coisa em que fez na página "ControleTexto" onde se coloca no "any" em "acao", ira mudar o inicio pois esta dando erro (obvio) que seria nessa parte, 
+já irei colocar o código certo em seguida para poder mostrar onde que está dando erro: 
 
-Na função registrar, o tipo do parâmetro acao foi deixado como any. Deveria ser mais específico, por exemplo, acao: string.
+export default function ResumoFinal() { 
+const [historico, setHistorico] = useState<string[]>([]); 
+const [valor, setValor] = useState(0); 
 
-O uso do useState estava errado para o histórico. Estava tentando passar um tipo string para o historico, mas o correto é um array de strings:
-
-const [historico, setHistorico] = useState<string[]>([]);
-
-A estrutura do código foi alterada de um export const para uma função padrão, pois estava sendo feita da forma incorreta para componentes React.
+estava passando errado o uso do "userState", estava tentando usar um "export const..." mas teria que ter feito uma função
