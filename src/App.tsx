@@ -2,7 +2,7 @@ import PainelDebug from "./componentes/PainelDebug";
 import ControleTexto from "./componentes/ControleTexto";
 import ContadorDuplo from "./componentes/ContadorDuplo";
 import ListaTarefas from "./componentes/ListaTarefas";
-import {ResumoFinal} from "./componentes/ResumoFinal";
+import ResumoFinal from "./componentes/ResumoFinal";
 
 export default function App() {
   return (
