@@ -1,0 +1,44 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "API Demo (Aula)", "version": "1.0.0" },
+  "servers": [{ "url": "http://localhost:3000&quot" }],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Verifica se a API está no ar",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          }
+        }
+      }
+    },
+    "/alunos": {
+      "post": {
+        "summary": "Cria um aluno",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object" , 
+                "required": ["nome", "turma"],
+                "properties": {
+                  "nome": { "type": "string", "example": ["Maria",  "Italo" ]},
+                  "turma": { "type": "string", "example": ["2A", "3A"] }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          }
+        }
+      }
+    }
+  }
+}
