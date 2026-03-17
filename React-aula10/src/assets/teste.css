@@ -1,0 +1,22 @@
+.container{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 32px;
+}
+
+.Teste{
+  background-color: #111827;
+  color: #e5edff;
+}
+
+.cont{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  gap: 24px;
+  padding: 16px 0 8px;
+  background: rgba(179, 204, 238, 0.8);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #e5e7eb;
+}
