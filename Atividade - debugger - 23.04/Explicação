@@ -1,0 +1,42 @@
+COMO A APLICAÇÃO FOI FEITA
+
+Visão Geral
+Aplicação React com 5 componentes independentes criada para praticar debugging e gerenciamento de estado com useState. Cada componente tinha bugs específicos que foram identificados e corrigidos.
+
+Componentes
+PainelDebug — Alterna entre dois estados ("parado" e "rodando") e conta o número de alternâncias.
+
+Gerencia dois estados: status (string) e vezes (número).
+Bug corrigido: erro de digitação statsu em vez de status na comparação ternária.
+Bug corrigido: importação desnecessária do React (removido, mantido apenas { useState }).
+
+ControleTexto — Normaliza texto em tempo real enquanto o usuário digita.
+
+Recebe entrada do usuário, aplica trim() e toLowerCase(), e exibe o resultado.
+Bug corrigido: nome da função escrito errado como normalizaTexto (faltava o "r").
+Bug corrigido: função não retornava o valor normalizado, apenas fazia trim() sem retornar nada.
+Bug corrigido: adicionada tipagem :any nos parâmetros para evitar erros do TypeScript.
+
+ContadorDuplo — Dois contadores que funcionam de forma independente.
+
+Contador A inicia em 0 e incrementa com um passo de 1.
+Contador B inicia em 10 e decrementa de 1 em 1.
+Bug corrigido: variável passo tinha barra "/" antes da declaração e não estava inicializada.
+Bug corrigido: função calcularNovo estava aninhada dentro de aumentarA, tornando o código complexo sem necessidade.
+Bug corrigido: função diminuirB não estava implementada.
+
+ListaTarefas — Gerenciador de tarefas com lista inicial de "Estudar" e "Revisar".
+
+Permite adicionar novas tarefas e remover existentes.
+Bug corrigido: lógica invertida no adicionar() — tinha if (entrada.length > 0) return; que impedia adicionar quando havia texto.
+Bug corrigido: nome da variável estava errado (items em vez de itens) ao criar cópia.
+Bug corrigido: função remover() modificava o array original diretamente com splice, sem criar cópia antes — React não detecta mutações diretas.
+Bug corrigido: adicionado export default (estava como export function).
+
+ResumoFinal — Contador que mantém histórico de ações.
+
+Registra cada incremento no formato "aumentou -> valor".
+Bug corrigido: histórico inicializado como string vazia ("") quando deveria ser array de strings (<string[]>[]).
+Bug corrigido: template string sem crases — estava ${acao} -> ${valor} em vez de `${acao} -> ${valor}`.
+Bug corrigido: tentativa de usar spread operator em string em vez de array.
+Bug corrigido: export const com arrow function quando deveria ser export default function.
